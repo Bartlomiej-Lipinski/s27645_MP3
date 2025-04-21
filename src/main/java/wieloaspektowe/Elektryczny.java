@@ -1,4 +1,4 @@
-package Wieloaspektowe;
+package wieloaspektowe;
 
 public class Elektryczny implements INaped {
     private final int mocSilnika;

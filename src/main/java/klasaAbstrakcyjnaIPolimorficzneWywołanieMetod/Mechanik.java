@@ -1,4 +1,4 @@
-package Klasa_abstrakcyjna_i_polimorficzne_Wywołanie_metod;
+package klasaAbstrakcyjnaIPolimorficzneWywołanieMetod;
 
 public class Mechanik extends Pracownik{
     private String specjalizacja;

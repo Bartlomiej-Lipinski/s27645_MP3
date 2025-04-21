@@ -1,6 +1,6 @@
-package Wielodziedziczenie;
+package wielodziedziczenie;
 
-public interface Posel {
+public interface IPosel {
     String getPartia();
     String getOkregWyborczy();
     String getNumerLegitymacji();

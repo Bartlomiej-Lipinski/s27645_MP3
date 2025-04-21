@@ -1,4 +1,4 @@
-package Wieloaspektowe;
+package wieloaspektowe;
 
 public interface INaped {
     double iloscKoniMechanicznych();

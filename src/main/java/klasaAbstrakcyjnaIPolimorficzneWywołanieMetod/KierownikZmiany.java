@@ -1,4 +1,4 @@
-package Klasa_abstrakcyjna_i_polimorficzne_Wywołanie_metod;
+package klasaAbstrakcyjnaIPolimorficzneWywołanieMetod;
 
 public class KierownikZmiany extends Pracownik{
     private String zmiana;
@@ -7,14 +7,18 @@ public class KierownikZmiany extends Pracownik{
     private int iloscZlecenWykonanych;
     private int iloscZlecenNieWykonanych;
 
-    public KierownikZmiany(String imie, String nazwisko, int wiek, int pensja) {
+    public KierownikZmiany(String imie, String nazwisko, int wiek, int pensja, String zmiana, int iloscPracownikow, int iloscZlecen, int iloscZlecenWykonanych, int iloscZlecenNieWykonanych) {
         super(imie, nazwisko, wiek, pensja);
+        setIloscPracownikow(iloscPracownikow);
+        setIloscZlecen(iloscZlecen);
+        setIloscZlecenWykonanych(iloscZlecenWykonanych);
+        setIloscZlecenNieWykonanych(iloscZlecenNieWykonanych);
     }
 
     @Override
     public double obliczPensje(int iloscGodzin) {
         double pensja = 0;
-        pensja = (iloscPracownikow*0.1)+(pensja/iloscGodzin)+((iloscZlecenWykonanych/iloscZlecen)*0.2)-((iloscZlecenNieWykonanych/iloscZlecen)*0.3);
+        pensja = (iloscPracownikow*0.1)+(pensja/iloscGodzin)+(((double) iloscZlecenWykonanych /iloscZlecen)*0.2)-(((double) iloscZlecenNieWykonanych /iloscZlecen)*0.3);
 
         return pensja;
     }
