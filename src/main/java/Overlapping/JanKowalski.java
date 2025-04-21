@@ -1,4 +1,4 @@
 package Overlapping;
 
-public class JanKowalski extends Osoba implements IStudent,IPracownik{
+public class JanKowalski extends Doctor implements IStudent,IPracownik{
 }

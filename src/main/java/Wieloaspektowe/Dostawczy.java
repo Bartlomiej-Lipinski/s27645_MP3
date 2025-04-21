@@ -1,10 +1,10 @@
 package Wieloaspektowe;
 
-public class Doztawczy implements IPrzeznaczenie{
+public class Dostawczy implements IPrzeznaczenie{
     private String typ;
     private int ladownosc;
 
-    public Doztawczy(String typ, int ladownosc) {
+    public Dostawczy(String typ, int ladownosc) {
         this.typ = typ;
         this.ladownosc = ladownosc;
     }
