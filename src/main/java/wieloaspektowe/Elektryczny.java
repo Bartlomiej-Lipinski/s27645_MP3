@@ -4,11 +4,29 @@ public class Elektryczny implements INaped {
     private final int mocSilnika;
     private final int iloscSilnikow;
     private final int pojemnoscAkumulatora;
+    Pojazd pojazd;
 
-    public Elektryczny(int pojemnoscAkumulatora, int mocSilnika, int iloscSilnikow) {
+    private Elektryczny(int pojemnoscAkumulatora, int mocSilnika, int iloscSilnikow) {
         this.mocSilnika = mocSilnika;
         this.iloscSilnikow = iloscSilnikow;
         this.pojemnoscAkumulatora = pojemnoscAkumulatora;
+    }
+    public static void createElektryczny(int pojemnoscAkumulatora, int mocSilnika, int iloscSilnikow, Pojazd pojazd) {
+        Elektryczny elektryczny = new Elektryczny(pojemnoscAkumulatora, mocSilnika, iloscSilnikow);
+        elektryczny.setPojazd(pojazd);
+        INaped naped = pojazd.setNaped(elektryczny);
+        if (naped != elektryczny){
+            throw new IllegalArgumentException("Nie można ustawić napędu");
+        }
+        if (elektryczny.getPojazd() != pojazd) {
+            throw new IllegalArgumentException("Nie można ustawić pojazdu");
+        }
+    }
+    public void setPojazd(Pojazd pojazd) {
+        if (pojazd == null) {
+            throw new IllegalArgumentException("Pojazd nie może być null");
+        }
+        this.pojazd = pojazd;
     }
 
     @Override
@@ -24,5 +42,10 @@ public class Elektryczny implements INaped {
     @Override
     public String rodzajNapedu() {
         return this.getClass().getName();
+    }
+
+    @Override
+    public Pojazd getPojazd() {
+        return pojazd;
     }
 }

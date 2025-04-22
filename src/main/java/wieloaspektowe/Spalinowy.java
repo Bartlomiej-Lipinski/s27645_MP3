@@ -5,12 +5,31 @@ public class Spalinowy implements INaped {
     private final int pojemnoscSilnika;
     private final int iloscCylindrow;
     private final int iloscZaworow;
+    private Pojazd pojazd;
 
-    public Spalinowy(int mocSilnika, int pojemnoscSilnika, int iloscCylindrow, int iloscZaworow) {
+    private Spalinowy(int mocSilnika, int pojemnoscSilnika, int iloscCylindrow, int iloscZaworow) {
         this.mocSilnika = mocSilnika;
         this.pojemnoscSilnika = pojemnoscSilnika;
         this.iloscCylindrow = iloscCylindrow;
         this.iloscZaworow = iloscZaworow;
+    }
+    public static void createSpalinowy(int mocSilnika, int pojemnoscSilnika, int iloscCylindrow, int iloscZaworow, Pojazd pojazd) {
+        Spalinowy spalinowy = new Spalinowy(mocSilnika, pojemnoscSilnika, iloscCylindrow, iloscZaworow);
+        spalinowy.setPojazd(pojazd);
+        INaped naped = pojazd.setNaped(spalinowy);
+        if (naped != spalinowy){
+            throw new IllegalArgumentException("Nie można ustawić napędu");
+        }
+        if (spalinowy.getPojazd() != pojazd) {
+            throw new IllegalArgumentException("Nie można ustawić pojazdu");
+        }
+    }
+
+    public void setPojazd(Pojazd pojazd) {
+        if (pojazd == null) {
+            throw new IllegalArgumentException("Pojazd nie może być null");
+        }
+        this.pojazd = pojazd;
     }
 
 
@@ -27,5 +46,10 @@ public class Spalinowy implements INaped {
     @Override
     public String rodzajNapedu() {
         return this.getClass().getName();
+    }
+
+    @Override
+    public Pojazd getPojazd() {
+        return pojazd;
     }
 }
