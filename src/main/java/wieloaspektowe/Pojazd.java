@@ -3,7 +3,7 @@ package wieloaspektowe;
 import java.util.Objects;
 
 public abstract class Pojazd {
-    private INaped naped;
+    private Naped naped;
     private String marka;
     private String model;
     private int rokProdukcji;
@@ -27,10 +27,10 @@ public abstract class Pojazd {
         setRokProdukcji(rokProdukcji);
         setKolor(kolor);
     }
-    public INaped getNaped() {
+    public Naped getNaped() {
         return naped;
     }
-    public INaped setNaped(INaped naped) {
+    public Naped setNaped(Naped naped) {
         if (naped == null) {
             throw new IllegalArgumentException("Naped nie może być null");
         }

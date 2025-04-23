@@ -1,20 +1,19 @@
 package wieloaspektowe;
 
-public class Elektryczny implements INaped {
-    private final int mocSilnika;
+public class Elektryczny extends Naped {
     private final int iloscSilnikow;
     private final int pojemnoscAkumulatora;
     Pojazd pojazd;
 
     private Elektryczny(int pojemnoscAkumulatora, int mocSilnika, int iloscSilnikow) {
-        this.mocSilnika = mocSilnika;
+        super(mocSilnika);
         this.iloscSilnikow = iloscSilnikow;
         this.pojemnoscAkumulatora = pojemnoscAkumulatora;
     }
     public static void createElektryczny(int pojemnoscAkumulatora, int mocSilnika, int iloscSilnikow, Pojazd pojazd) {
         Elektryczny elektryczny = new Elektryczny(pojemnoscAkumulatora, mocSilnika, iloscSilnikow);
         elektryczny.setPojazd(pojazd);
-        INaped naped = pojazd.setNaped(elektryczny);
+        Naped naped = pojazd.setNaped(elektryczny);
         if (naped != elektryczny){
             throw new IllegalArgumentException("Nie można ustawić napędu");
         }
@@ -31,12 +30,12 @@ public class Elektryczny implements INaped {
 
     @Override
     public double iloscKoniMechanicznych() {
-        return mocSilnika * 1.34 * iloscSilnikow;
+        return getMocSilnika() * 1.34 * iloscSilnikow;
     }
 
     @Override
     public int iloscZuzyciaEnergii() {
-        return mocSilnika*iloscSilnikow / pojemnoscAkumulatora;
+        return getMocSilnika()*iloscSilnikow / pojemnoscAkumulatora;
     }
 
     @Override
