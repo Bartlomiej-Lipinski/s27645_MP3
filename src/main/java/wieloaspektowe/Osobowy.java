@@ -6,7 +6,7 @@ public class Osobowy extends Pojazd{
     private String typNapedu;
 
 
-    public Osobowy(INaped naped, String marka, String model, int rokProdukcji, String kolor,int iloscMiejsc, String typNadwozia) {
+    public Osobowy(Naped naped, String marka, String model, int rokProdukcji, String kolor, int iloscMiejsc, String typNadwozia) {
         super(naped, marka, model, rokProdukcji, kolor);
         this.iloscMiejsc =iloscMiejsc;
         this.typNadwozia = typNadwozia;

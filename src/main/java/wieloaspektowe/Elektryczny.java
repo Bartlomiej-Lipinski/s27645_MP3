@@ -1,24 +1,23 @@
 package wieloaspektowe;
 
-public class Elektryczny implements INaped {
-    private final int mocSilnika;
+public class Elektryczny extends Naped {
     private final int iloscSilnikow;
     private final int pojemnoscAkumulatora;
 
     public Elektryczny(int pojemnoscAkumulatora, int mocSilnika, int iloscSilnikow) {
-        this.mocSilnika = mocSilnika;
+        super(mocSilnika);
         this.iloscSilnikow = iloscSilnikow;
         this.pojemnoscAkumulatora = pojemnoscAkumulatora;
     }
 
     @Override
     public double iloscKoniMechanicznych() {
-        return mocSilnika * 1.34 * iloscSilnikow;
+        return super.getMocSilnika() * 1.34 * iloscSilnikow;
     }
 
     @Override
     public int iloscZuzyciaEnergii() {
-        return mocSilnika*iloscSilnikow / pojemnoscAkumulatora;
+        return super.getMocSilnika()*iloscSilnikow / pojemnoscAkumulatora;
     }
 
     @Override

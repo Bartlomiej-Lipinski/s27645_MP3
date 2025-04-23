@@ -1,13 +1,12 @@
 package wieloaspektowe;
 
-public class Spalinowy implements INaped {
-    private final int mocSilnika;
+public class Spalinowy extends Naped {
     private final int pojemnoscSilnika;
     private final int iloscCylindrow;
     private final int iloscZaworow;
 
     public Spalinowy(int mocSilnika, int pojemnoscSilnika, int iloscCylindrow, int iloscZaworow) {
-        this.mocSilnika = mocSilnika;
+        super(mocSilnika);
         this.pojemnoscSilnika = pojemnoscSilnika;
         this.iloscCylindrow = iloscCylindrow;
         this.iloscZaworow = iloscZaworow;
@@ -16,12 +15,12 @@ public class Spalinowy implements INaped {
 
     @Override
     public double iloscKoniMechanicznych() {
-        return pojemnoscSilnika * 0.13 * iloscCylindrow * iloscZaworow+ mocSilnika * 0.1;
+        return pojemnoscSilnika * 0.13 * iloscCylindrow * iloscZaworow+ super.getMocSilnika() * 0.1;
     }
 
     @Override
     public int iloscZuzyciaEnergii() {
-        return pojemnoscSilnika * iloscCylindrow / mocSilnika;
+        return pojemnoscSilnika * iloscCylindrow / super.getMocSilnika();
     }
 
     @Override
